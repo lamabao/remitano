@@ -1,0 +1,36 @@
+<header id="header">
+	<div class="container">
+		<div class="col-lg-6 border-shaw-2">
+			<a class="txt-hover-logo" href="/"><h1 class="txt-header-top"><i class="glyphicon glyphicon-home"></i> Funny Movies</h1></a>
+		</div>
+		<div class="col-lg-6 border-shaw-2">
+			<% if session[:userid].to_i<=0 %>
+				<form id="form_login_header" action="/user/checklogin" method="post">
+					<%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+						<div class="col-lg-4">
+							 <input type="Email" class="form-control" placeholder="Enter Email" name="username" autocomplete="off"required>
+						</div>
+					   <div class="col-lg-4">
+					   		<input type="password" class="form-control" placeholder="Enter Password" autocomplete="off" name="password" required>
+					   </div>
+				   <button type="submit" class="registerbtn">Login</button> | <button type="buton" onclick="location.href='/user/register';"" class="registerbtn">Register</button>
+				</form>
+			<%else%>
+
+				<div id="form_login_header_sing">
+					<div class="col-lg-12 text-right">
+							<div class="col-lg-7 txt-name-h">Wellcome <%=User.getuserid(session[:userid].to_i).username%></div>
+							<div class="col-lg-3">
+								<a href="/user/sharemovie" class="btn btn-primary">Share a movie</a>
+							</div>
+							<div class="col-lg-2 text-right">
+								<a href="/user/logout" class="btn btn-default">Logout</a>
+							</div>
+					</div>
+					
+				</div>
+				
+			<%end%>
+		</div>
+</div>
+</header>

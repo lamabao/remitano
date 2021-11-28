@@ -1,0 +1,60 @@
+
+<main>
+<div class="container">
+  <div class="row">
+   
+   <% @movies.each do |item| %>
+   <div class="col-lg-1"></div>
+    <div class="col-md-9 item-content" data-target="toggle.grid">
+       <div class="col-lg-5">
+               <iframe width="100%" height="200" src="https://www.youtube.com/embed/<%=item.idyoutube%>"></iframe>
+            </div>
+            <div class="col-lg-7 txt-item-content">
+                <h2 class="txt-h2-h"><%=item.title%></h2>
+                <p class="poss">Share by: <%=User.getuserid(item.iduser).username%>  
+                  <% 
+                      iduser=0
+                      if session[:userid].to_i!=0
+                        iduser = session[:userid].to_i
+                         datacheck=Countlike.checkcountuser(iduser,item.id)
+                        if datacheck.length==0 %>
+                          <i  style="cursor: pointer;" onclick="Remitano.vocieup(<%=item.id%>)" class="glyphicon glyphicon-thumbs-up"></i> 
+                         <i style="cursor: pointer;" onclick="Remitano.vociedown(<%=item.id%>)" class="glyphicon glyphicon-thumbs-down"></i><span>(un-voted)</span>
+                         <%else
+                        
+                            if datacheck[0].numberlike.to_i==1 %>
+
+                             <i  class="glyphicon glyphicon-thumbs-up"></i> <span style="left: 219px;">(up-voted)</span>
+
+                          <%  
+
+                        else
+                           %>
+                            <i  class="glyphicon glyphicon-thumbs-down"></i><span style="left: 220px;">(down-voted)</span>
+                           <%
+                        end
+
+                        end %>
+                     <%end
+                     
+                   %>
+                  
+                  
+                </p>
+
+                <p class="count-like"><%=item.numberlike%> <i class="glyphicon glyphicon-thumbs-up"> </i><%=item.numberdislink%> <i class="glyphicon glyphicon-thumbs-down"> </i></p>
+                <p>Description:</p>
+                <p class="over-hidden-p"><%=item.description%></p>
+            </div>
+    </div>
+     <div class="col-lg-2"></div>
+     <div class="clearfix"></div>
+   <%end%>
+    <div class="col-lg-12 text-center" style="margin-top:20px">
+        <%=will_paginate @movies %>
+    </div>
+  
+  </div>
+</div>
+</main>
+
