@@ -25,20 +25,22 @@ test:
   host: ec2-23-23-219-25.compute-1.amazonaws.com
 
 beta:
-  adapter: mysql2
-  database: 
-  username: 
-  password: 
-  socket: 
-  host: 
-  secure_auth: false
+  adapter: postgresql
+  encoding: utf8
+  reconnect: false
+  database: d8po8sqfo4o3f8
+  pool: 5
+  username: ywtzmjjnxzhhuj
+  password: 87b33b72cadea89b177931a6a4b7ee908bf3c53b0048a52c83824f5a10cf5527
+  host: ec2-23-23-219-25.compute-1.amazonaws.com
 
 
 production:
-  adapter: mysql2
-  database: 
-  username: 
-  password: 
-  socket: /var/run/mysqld/mysqld.sock
-  host: 
-  secure_auth: false
+  adapter: postgresql
+  encoding: utf8
+  reconnect: false
+  database: d8po8sqfo4o3f8
+  pool: 5
+  username: ywtzmjjnxzhhuj
+  password: 87b33b72cadea89b177931a6a4b7ee908bf3c53b0048a52c83824f5a10cf5527
+  host: ec2-23-23-219-25.compute-1.amazonaws.com
