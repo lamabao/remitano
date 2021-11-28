@@ -8,21 +8,21 @@ development:
   adapter: postgresql
   encoding: utf8
   reconnect: false
-  database: remitano
+  database: d8po8sqfo4o3f8
   pool: 5
-  username: postgres
-  password: admin@123
-  host: localhost
+  username: ywtzmjjnxzhhuj
+  password: 87b33b72cadea89b177931a6a4b7ee908bf3c53b0048a52c83824f5a10cf5527
+  host: ec2-23-23-219-25.compute-1.amazonaws.com
   
 test:
-  adapter: mysql2
+  adapter: postgresql
   encoding: utf8
   reconnect: false
-  database: remitano
+  database: d8po8sqfo4o3f8
   pool: 5
-  username: root
-  password: admin@123
-  host: localhost
+  username: ywtzmjjnxzhhuj
+  password: 87b33b72cadea89b177931a6a4b7ee908bf3c53b0048a52c83824f5a10cf5527
+  host: ec2-23-23-219-25.compute-1.amazonaws.com
 
 beta:
   adapter: mysql2

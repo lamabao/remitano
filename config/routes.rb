@@ -8,5 +8,4 @@ Rails.application.routes.draw do
    post "user/checklogin"
    post "ajax/vocieup"
    post "ajax/vociedown"
-   post "ajax/testajax"
 end
