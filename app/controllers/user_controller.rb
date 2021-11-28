@@ -57,7 +57,9 @@ class UserController < ApplicationController
 	# end
 	# Share movie
 		def sharemovie
-
+			if session[:userid].to_i==0
+				redirect_to  :controller=>'home', :action=>"index"
+			end
 		end
 		def addsharemovie
 			
